@@ -20,11 +20,10 @@ TORTOISE_ORM = {
     },
     "apps": {
         "models": {
-            "models": ["app.models"],
+            "models": ["app.models.book"],
             "default_connection": "default",
         }
     },
     "use_tz": True,
     "timezone": "Asia/Shanghai",
 }
-

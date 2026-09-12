@@ -6,7 +6,7 @@
 
 - 前端：Vue 3 + Vite
 - 后端：FastAPI
-- ORM：Tortoise-ORM（下一阶段接入）
+- ORM：Tortoise-ORM 0.25.4（兼容当前 Python 3.9）
 - 数据库：MySQL（下一阶段接入）
 
 ## 目录

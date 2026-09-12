@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 from datetime import datetime
+from typing import List, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -6,10 +9,10 @@ from pydantic import BaseModel, ConfigDict, Field
 class BookBase(BaseModel):
     title: str = Field(min_length=1, max_length=200)
     author: str = Field(min_length=1, max_length=100)
-    isbn: str | None = Field(default=None, max_length=20)
-    publisher: str | None = Field(default=None, max_length=120)
-    published_year: int | None = Field(default=None, ge=0, le=3000)
-    description: str | None = None
+    isbn: Optional[str] = Field(default=None, max_length=20)
+    publisher: Optional[str] = Field(default=None, max_length=120)
+    published_year: Optional[int] = Field(default=None, ge=0, le=3000)
+    description: Optional[str] = None
 
 
 class BookCreate(BookBase):
@@ -28,6 +31,5 @@ class BookResponse(BookBase):
 
 
 class BookListResponse(BaseModel):
-    items: list[BookResponse]
+    items: List[BookResponse]
     total: int
-

@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from tortoise.contrib.fastapi import RegisterTortoise
+from tortoise.contrib.fastapi import register_tortoise
 
 from app.api.routes.books import router as books_router
 from app.db import TORTOISE_ORM
@@ -25,7 +25,7 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
 app.include_router(books_router, prefix="/api/books", tags=["图书"])
-RegisterTortoise(app, config=TORTOISE_ORM, generate_schemas=True)
+register_tortoise(app, config=TORTOISE_ORM, generate_schemas=True)
 
 
 @app.get("/", response_class=HTMLResponse, include_in_schema=False)

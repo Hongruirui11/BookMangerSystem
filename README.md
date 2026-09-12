@@ -37,5 +37,22 @@ npm install
 npm run dev
 ```
 
-MySQL 连接配置和 CRUD 说明将在后续阶段补充。
+## MySQL 配置
 
+先创建数据库（用户和权限可以按本机环境调整）：
+
+```sql
+CREATE DATABASE book_manager DEFAULT CHARACTER SET utf8mb4;
+```
+
+复制 `backend/.env.example` 为 `backend/.env`，填写 MySQL 账号密码。开发环境启动时 Tortoise-ORM 会自动创建表结构。
+
+## 当前 API
+
+- `GET /api/books/`：列表
+- `GET /api/books/search?keyword=vue`：查询
+- `GET /api/books/{id}`：详情
+- `POST /api/books/`：新增
+- `PUT /api/books/{id}`：编辑
+- `DELETE /api/books/{id}`：删除
+- `GET /api/request-demo`：Request 对象教学示例
